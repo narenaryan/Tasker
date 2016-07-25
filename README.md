@@ -1,6 +1,16 @@
 # Tasker
 
 A Teacher-Student task management system built in Django
+#### Teacher view
+
+![command_open](https://github.com/narenaryan/Tasker/raw/master/images/admin.png)
+
+![command_open](https://github.com/narenaryan/Tasker/blob/master/images/addTask.png)
+
+
+#### Student View
+
+![command_open](https://github.com/narenaryan/Tasker/blob/master/images/student.png)
 
 ## Requirements
 
