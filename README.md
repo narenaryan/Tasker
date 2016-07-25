@@ -13,19 +13,40 @@ A Teacher-Student task management system built in Django
 Clone this repository and then
 
 - First install a virtual environment with command
-
-  $ virtualenv testenv $ source testenv/bin/activate
-
+```
+    $ virtualenv testenv 
+    $ source testenv/bin/activate
+    $ pip install -r requirements.txt
+```
 - Just do migration for the app from project root.
 
-  $ python manage.py migrate
+```
+    $ python manage.py migrate
+```
+### Creating users
 
-### Done till now
+- Admin (Teacher) can be created using this command. 
+```
+   $ python manage.py createsuperuser
+```
+after that run server locally with following command 
+```
+   $ python manage.py runserver 0.0.0.0:8000
+```
 
-- Admin (Teacher) can be created by using this command. $ python manage.py createsuperuser
+Visit <http://localhost:8000/admin> in the browser to add few students(users).
 
-after that run server locally with following command $ python manage.py runserver 0.0.0.0:8000
+#### Done 
 
-Visit <http://localhost:8000/admin> in the browser.
+- Admin(teacher) can create new tasks and assign them to multiple students.
+- Can see all taskes he created and who else are assigned to him from dashboard.
+- User(student) can login to his account and see tasks assigned to him.
+- He/She can change the status of task assigned to him like todo, doing, done etc.
 
-Add few users i.e Students
+#### Todo
+
+- Signup & Password recovery
+- Approval & Disapproval of assignments by Admin(Teacher)
+- Real time notifications to the Admin about the student task updates.
+
+Check <b>images/</b> directory for screenshots.
