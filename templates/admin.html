@@ -1,0 +1,59 @@
+<div class="container">
+	<div class="row">
+		<div class="jumbotron">
+			<div class="row">
+				<p>This is the place to create tasks for students. Add a new Task by clicking below button</p>
+				<center><a class="btn btn-primary" id="addTask" data-toggle="modal" data-target="#myModal">Add Task</a></center>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal" id="myModal" style="margin-top:5%">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">Task details</h4>
+				</div>
+				<div class="modal-body">
+					{% csrf_token %}
+					<div class="form-group has-warning">
+						<label class="control-label" for="taskName" style="color:black;">Name</label>
+						<input type="text" class="form-control" id="taskName">
+						<label class="control-label" for="focusedInput" style="color:black;">Description</label>
+						<textarea class="form-control" rows="5" id="focusedInput"></textarea>
+						<label class="control-label" for="students" style="color:black;">Students</label>
+						<select class="selectpicker form-control" id="students" data-live-search="true" multiple>
+							{% for user in users %}
+							<option data-tokens="{{user.username}}" value={{user.id}}>{{user.username}}</option>
+							{% endfor %}
+						</select>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary" id="saveButton">Save Task</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container attachData">
+	<div class="row">
+		{% for task in tasks %}
+		<div class="col-md-4">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">{{task.title}}</h3>
+			</div>
+			<div class="panel-body">
+				{{task.description}} <br />
+				{% for assignment in task.assignments.all %}
+					 <span class="label label-success">{{assignment.student.username}}</span>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+		{% endfor %}
+	</div>
+</div>

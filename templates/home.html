@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+	{% if user.is_staff %}
+
+	    {% include "admin.html" with users=users tasks=tasks%}
+
+	{% else %}
+
+	    {% include "student.html" with tasks=tasks%}
+
+	{% endif %}
+
+{% endblock %}
+
+{% block javascript %}
+{% if user.is_staff %}
+		<script src="{% static 'js/admin.js' %}"></script>
+{% else %}
+		<script src="{% static 'js/student.js' %}"></script>
+{% endif %}
+{% endblock %}

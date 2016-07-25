@@ -1,0 +1,36 @@
+<center>
+	<h3>Welcome to your task list</h3></center>
+<div class="container">
+	{% csrf_token %}
+	<div class="row form-group">
+		{% for task in tasks %}
+		<div class="col-md-4">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{task.title}}</h3>
+					{% for assignment in task.assignments.all %}
+					{% if assignment.student == request.user %}
+					<span assignment="{{assignment.id}}" class="label label-success">{{assignment.status}}</span>
+					{% endif %}
+					{% endfor %}
+					<li class="dropdown" style="margin-left: 53%;margin-top: -12%;">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+		 Edit <span class="caret"></span>
+	 </a>
+						<ul class="dropdown-menu" assignment="{{assignment.id}}">
+							<li><a href="#"></a></li>
+							<li><a href="#" status=1>todo</a></li>
+							<li><a href="#" status=2>doing</a></li>
+							<li><a href="#" status=3>done</a></li>
+						</ul>
+					</li>
+				</div>
+				<div class="panel-body">
+					{{task.description}}
+					<br />
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
