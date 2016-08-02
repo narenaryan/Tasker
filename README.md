@@ -58,5 +58,6 @@ Visit <http://localhost:8000/admin> in the browser to add few students(users).
 - Signup & Password recovery
 - Approval & Disapproval of assignments by Admin(Teacher)
 - Real time notifications to the Admin about the student task updates.
+- Please check the issues/features and give pull requests to improve tasker. 
 
 Check <b>images/</b> directory for screenshots.
